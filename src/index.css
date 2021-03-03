@@ -1,13 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap');
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: darkorchid;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1{
+  text-align: center;
+  font-family: 'Oxygen', sans-serif;
+  color: darkorchid;
+}
+p{
+  font-family: 'Oxygen', sans-serif;
+}
+.container{
+  width: 90vw;
+  max-width: 450px;
+  margin: 5rem auto 0 auto;
+  background: #fff;
+  border-radius: 0.25rem;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+.todo-item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-control input {
+  width: 100%;
+  border: none;
+  border-color: transparent;
+  background: #f1f5f8;
+  border-radius:0.25rem;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+}
+.btn{
+  width: 100%;
+  margin: 2rem auto 0 auto;
+  font-size: 1.2rem;
+  outline: 1px solid #ccc;
+  cursor: pointer;
+  border-radius:0.25rem;
+  background: darkorchid;
+  color: #ffffff;
+  height: 45px;
+  text-transform: capitalize;
+}
+.plus{
+  margin-right: 20px;
+}
+.trash{
+  color: #ccc;
+  cursor: pointer;
+}
+.alert{
+  padding: 0.75rem 1.25rem;
+  color: #ffffff;
+  text-align: center;
+  text-transform: capitalize;
+  width: 90%;
+  margin: 2rem auto 0 auto;
+  border-radius: 2px;
+  
+}
+.alert-danger{
+  background: #9b2915;
+}
+.alert-success{
+  background: #018e42;
 }
