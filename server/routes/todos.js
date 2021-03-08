@@ -1,5 +1,6 @@
 const router = require('express').Router();
 let Todo = require('../models/todo.model');
+const Joi = require('joi')
 
 // router.route('/').get((req, res)=>{
 //     Todo.find()
@@ -35,6 +36,20 @@ router.get('/', async(req, res)=>{
 })
 
 router.post('/', (req, res)=>{
+    const schema = Joi.object({
+        text: Joi.string().min(3).max(200).required(),
+        author: Joi.string().min(3).max(30),
+        uid: Joi.string(),
+        isComplete: Joi.boolean(),
+        date: Joi.date()
+    })
+
+    //validating the data
+    // const {value, error } = schema.validate(req.body);
+    const {error } = schema.validate(req.body);
+    // console.log(value, error)
+
+    if(error) return res.status(400).send(error.details[0].message)
     const { text, isComplete, author, date, uid} = req.body;
     let todo = new Todo ({
         text: text,

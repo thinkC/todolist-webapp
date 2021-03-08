@@ -19,13 +19,17 @@ connection.once('open', ()=>{
     console.log('MongoDB connection established successfully!');
 })
 
-// require todos and users routes
+// require todos and users, signup routes
 const todosRouter = require('./routes/todos');
-const usersRouter = require('./routes/users');
+// const usersRouter = require('./routes/users'); //delete this later
+const signup = require('./routes/signup');
+const signin = require('./routes/signin');
 
-//using todos and user routes
+//using todos, user, signup routes
 app.use('/api/todos', todosRouter);
-app.use('/users', usersRouter);
+app.use('/api/signup', signup);
+app.use('/api/signin', signin);
+
 
 app.listen(port, ()=>{
     console.log('server is running on Port ' + port)
