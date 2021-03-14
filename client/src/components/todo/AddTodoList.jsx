@@ -1,11 +1,14 @@
 import React from 'react';
 import { FaPlus } from 'react-icons/fa';
 
-const AddToList = ({ text, setText, handleSubmit, todos }) => {
+
+const AddTodoList = ({ text, setText, handleSubmit, todos }) => {
 
 
     return (
         <>
+
+  
             <form onSubmit={handleSubmit} className='search-form'>
                 <div className='form-control'>
                     <input type="text"
@@ -21,8 +24,9 @@ const AddToList = ({ text, setText, handleSubmit, todos }) => {
                     </button>
                 </div>
             </form>
+            
         </>
     )
 }
 
-export default AddToList;
+export default AddTodoList;

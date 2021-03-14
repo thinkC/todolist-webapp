@@ -71,3 +71,41 @@ p{
 .alert-success{
   background: #018e42;
 }
+
+nav{
+  background: #333;
+
+}
+nav ul{
+  list-style-type: none;
+  padding: 0;
+  margin-top: 0;
+
+}
+
+nav .navLink {
+  text-decoration: none;
+  /* text-align: center; */
+  color: #fff;
+  display: block;
+  padding: 10px;
+}
+nav .navLink:hover{
+  background-color: #555;
+}
+
+@media screen and (min-width:768px){
+  nav ul{
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.form-group{
+  display: flex;
+  flex-direction: column;
+}
+.label{
+  padding-bottom: 10px;
+  padding-top: 5px;
+}

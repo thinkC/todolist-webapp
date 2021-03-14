@@ -24,7 +24,7 @@ const Joi = require('joi')
 // .catch(err => res.status(400).json('Error ' + error))
 // });
 
-router.get('/',auth, async(req, res)=>{
+router.get('/', async(req, res)=>{
     try{
         const todos = await Todo.find()
     .sort({date: -1})
