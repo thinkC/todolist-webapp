@@ -1,7 +1,19 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
-const Navbar = () => {
+const Navbar = ({userData, setUserData}) => {
+    // const [userData, setUserData] = useState({
+    //     token: undefined,
+    //     user: undefined
+    //   })
+    //tokenIsValid
+
+    // useEffect(()=>{
+
+    // })
+
+      console.log(userData)
     return ( 
         <>
         <nav>

@@ -1,5 +1,8 @@
 const router = require('express').Router();
 const auth = require('../middleware/auth');
+const jwt = require('jsonwebtoken');
+const { User } = require('../models/user.model');
+
 let Todo = require('../models/todo.model');
 const Joi = require('joi')
 
@@ -28,7 +31,7 @@ router.get('/', async(req, res)=>{
     try{
         const todos = await Todo.find()
     .sort({date: -1})
-    console.log(req.user)
+    // console.log(req.user)
     res.send(todos)
     }catch(error){
         res.status(500).send(error.message);
@@ -78,6 +81,21 @@ router.delete('/:id' ,async(req, res)=>{
         console.log(error.message);
     }
     
+});
+
+router.post('/tokenIsValid', async (req,res)=>{
+    try{
+        const token=req.header("x-auth-token");
+        const secretKey = process.env.SECRET_KEY;
+        if(!token) return res.json(false);
+        const verified = jwt.verify(token, secretKey);
+        if(!verified) return res.json(false);
+        const user = await User.findById(verified.id);
+        if(!user) return res.json(false);
+        return res.json(true)
+    }catch(error){
+        res.status(500).json({error: error.message})
+    }
 })
 
 module.exports = router

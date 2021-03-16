@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap');
 
-body {
+/* body {
   background-color: darkorchid;
-}
+} */
 
 h1{
   text-align: center;
   font-family: 'Oxygen', sans-serif;
-  color: darkorchid;
+  color:#555;
 }
 p{
   font-family: 'Oxygen', sans-serif;
@@ -43,10 +43,13 @@ p{
   outline: 1px solid #ccc;
   cursor: pointer;
   border-radius:0.25rem;
-  background: darkorchid;
+  background:#555;
   color: #ffffff;
   height: 45px;
   text-transform: capitalize;
+}
+.btn-success{
+  background-color: #5cb85c;
 }
 .plus{
   margin-right: 20px;

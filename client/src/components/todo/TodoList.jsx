@@ -17,7 +17,7 @@ const [todos, setTodos] = useState([]);
 const [text, setText] = useState('');
 const [alert, setAlert] = useState({ show: false });
 const history = useHistory();
-
+console.log(process)
 
 // history.push('/');
     // useEffect(()=>{
@@ -67,43 +67,76 @@ const history = useHistory();
       const fetchItem = async () =>{
         const todos = await getTodos()
         setTodos(todos)
+        console.log(todos)
       }
       fetchItem()
     },[])
 
 
     
-    //function to submit new todo
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log('submit')
-    if (text && /^[a-zA-Z]+$/i.test(text)) {
-    await  createTodos({text:text})
-      // setTodos([
-      //   ...todos,
-      //   { id: new Date().getTime().toString(), text: text }
-      // ])
+  //   //function to submit new todo
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   console.log('submit')
+  //   if (text && /^[a-zA-Z]+$/i.test(text)) {
+  //   await  createTodos({text:text})
+  //     // setTodos([
+  //     //   ...todos,
+  //     //   { id: new Date().getTime().toString(), text: text }
+  //     // ])
 
-    //   axios.post('http://localhost:3001/api/todos', )
+  //   //   axios.post('http://localhost:3001/api/todos', )
 
-    // async function addTodo(){
-    //     try{
-    //         const response = await post('http://localhost:3001/api/todos', todo)
-    //     }catch(error){
-    //         console.log(error)
-    //     }
-    // }
-    // addTodo()
+  //   // async function addTodo(){
+  //   //     try{
+  //   //         const response = await post('http://localhost:3001/api/todos', todo)
+  //   //     }catch(error){
+  //   //         console.log(error)
+  //   //     }
+  //   // }
+  //   // addTodo()
 
-      setText("");
-      handleAlert({ type: 'success', text: 'task added' })
-    } else {
+  //     setText("");
+  //     handleAlert({ type: 'success', text: 'task added' })
+  //   } else {
 
-      setText("");
-      handleAlert({ type: 'danger', text: 'no empty or illegal character is allowed' })
-    }
+  //     setText("");
+  //     handleAlert({ type: 'danger', text: 'no empty or illegal character is allowed' })
+  //   }
     
-  }
+  // }
+
+      //function to submit new todo
+      const handleSubmit = async (e) => {
+        e.preventDefault();
+        console.log('submit')
+        if (text) {
+        await  createTodos({text:text})
+          // setTodos([
+          //   ...todos,
+          //   { id: new Date().getTime().toString(), text: text }
+          // ])
+    
+        //   axios.post('http://localhost:3001/api/todos', )
+    
+        // async function addTodo(){
+        //     try{
+        //         const response = await post('http://localhost:3001/api/todos', todo)
+        //     }catch(error){
+        //         console.log(error)
+        //     }
+        // }
+        // addTodo()
+    
+          setText("");
+          handleAlert({ type: 'success', text: 'task added' })
+        } else {
+    
+          setText("");
+          handleAlert({ type: 'danger', text: 'no empty or illegal character is allowed' })
+        }
+        
+      }
 
   //function to remove todo
   // const removeTodo = (id) => {
@@ -118,8 +151,15 @@ const history = useHistory();
     // let tempTodos = [...todos];
     // const removedItem = tempTodos.filter((item) => item.id !== id);
     // setTodos(removedItem);
-  let aa =  await deleteTodo(id)
-  console.log(aa)
+    console.log(todos)
+    
+         let aa = await deleteTodo('604e327e7923242f30179d18')
+    
+        // console.log(id)
+       
+  
+  
+  console.log(id)
     // console.log(id)
   }
 
@@ -137,6 +177,7 @@ const history = useHistory();
         <div className="container">
         {alert.show && <Alert type={alert.type} text={alert.text} />}
         {/* {console.log(todos)} */}
+        <h1>Todo List</h1>
         {todos && todos.map((todo)=>{
             return <TodoListItem todo={todo} key={todo.id} removeTodo={removeTodo}  />
         })}
